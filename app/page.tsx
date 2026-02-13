@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import useEmblaCarousel from 'embla-carousel-react'
+import { Counter } from '@/components/ui/counter'
 import {
   Plane,
   Briefcase,
@@ -32,9 +33,10 @@ export default function Home() {
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
   const [passengers, setPassengers] = useState('1')
-  const [vehicle, setVehicle] = useState('Sedan')
+  const [vehicle, setVehicle] = useState('')
   const [tripType, setTripType] = useState('One-way')
   const [fullName, setFullName] = useState('')
+  const [Additional, setAdditional] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [numLuggage, setNumLuggage] = useState('0')
@@ -182,7 +184,7 @@ export default function Home() {
       name: 'Jennifer Mitchell',
       role: 'CEO, Tech Solutions',
       quote: 'Exceptional service every single time. The drivers are professional and the vehicles immaculate.',
-      rating: 5,
+      rating: 7,
     },
     {
       name: 'Robert Chen',
@@ -194,7 +196,7 @@ export default function Home() {
       name: 'Sarah Thompson',
       role: 'Event Planner',
       quote: 'Perfect for my clients. They always arrive on time and the experience is completely seamless.',
-      rating: 5,
+      rating: 8,
     },
   ]
 
@@ -227,28 +229,34 @@ export default function Home() {
 
   const events = [
     {
+      title: 'Party Night Transportation',
+    
+      description: 'arrive in style to your party night with our premium mercedes benz sprinter',
+      image: '/party.jpg',
+    },
+    {
       title: 'Gala Night Transportation',
-      date: 'March 15, 2024',
+    
       description: 'Arrive in style at exclusive galas with our premium limousine service',
-      image: '/event-gala.jpg',
+      image: '/gala.jpg',
     },
     {
       title: 'Wedding Day Elegance',
-      date: 'April 22, 2024',
+   
       description: 'Make your special day unforgettable with coordinated luxury transportation for your wedding party',
-      image: '/event-wedding.jpg',
+      image: '/wedding.jpg',
     },
     {
       title: 'Corporate Conferences',
-      date: 'May 10, 2024',
+
       description: 'Executive transportation for major business conferences and corporate events',
-      image: '/event-conference.jpg',
+      image: '/conference.jpg',
     },
     {
       title: 'VIP Airport Transfers',
-      date: 'May 28, 2024',
+    
       description: 'Premium airport transfers with meet-and-greet service for valued clients',
-      image: '/event-airport.jpg',
+      image: '/airport.jpg',
     },
   ]
 
@@ -388,7 +396,7 @@ export default function Home() {
                       </p>
                     </div>
                     <div>
-                      <p className="text-2xl font-bold text-primary">98%</p>
+                      <p className="text-2xl font-bold text-primary">96%</p>
                       <p className="text-xs text-muted-foreground tracking-wider uppercase mt-2">
                         Satisfaction
                       </p>
@@ -398,10 +406,8 @@ export default function Home() {
               </div>
 
               <div className="hidden lg:block relative">
-                <div className="bg-secondary/40 aspect-square rounded-sm overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
-                </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-primary/30" />
+
+             
               </div>
             </div>
           </div>
@@ -427,7 +433,7 @@ export default function Home() {
 
                 <div className="space-y-6">
                   <p className="text-lg text-muted-foreground leading-relaxed font-light">
-                    With over 15 years of excellence, Elite Chauffeur has set the standard for premium transportation services. We believe luxury is not just about the vehicle—it's about the complete experience.
+                    With over <Counter value={15} suffix="+" duration={1500} className="font-semibold text-foreground" /> years of excellence, Elite Chauffeur has set the standard for premium transportation services. We believe luxury is not just about the vehicle—it's about the complete experience.
                   </p>
 
                   <p className="text-base text-muted-foreground leading-relaxed">
@@ -486,30 +492,31 @@ export default function Home() {
                   {/* Stats Cards */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-background border border-border p-6 rounded-sm hover:border-primary/50 transition-colors duration-300">
-                      <p className="text-3xl font-bold text-primary mb-2">15+</p>
+                      <p className="text-3xl font-bold text-primary mb-2">24/7</p>
+                      <p className="text-xs font-semibold text-muted-foreground tracking-widest uppercase">Available</p>
+                    </div>
+                    <div className="bg-background border border-border p-6 rounded-sm hover:border-primary/50 transition-colors duration-300">
+                      <p className="text-3xl font-bold text-primary mb-2">
+                        <Counter value={15} suffix="+" duration={1500} />
+                      </p>
                       <p className="text-xs text-muted-foreground tracking-widest uppercase font-medium">
                         Years in Business
                       </p>
                     </div>
                     <div className="bg-background border border-border p-6 rounded-sm hover:border-primary/50 transition-colors duration-300">
-                      <p className="text-3xl font-bold text-primary mb-2">2K+</p>
-                      <p className="text-xs text-muted-foreground tracking-widest uppercase font-medium">
-                        Satisfied Clients
+                      <p className="text-3xl font-bold text-primary mb-2">
+                        <Counter value={10} suffix="+" duration={1000} />
                       </p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-background border border-border p-6 rounded-sm hover:border-primary/50 transition-colors duration-300">
-                      <p className="text-3xl font-bold text-primary mb-2">50+</p>
                       <p className="text-xs text-muted-foreground tracking-widest uppercase font-medium">
                         Premium Vehicles
                       </p>
                     </div>
                     <div className="bg-background border border-border p-6 rounded-sm hover:border-primary/50 transition-colors duration-300">
-                      <p className="text-3xl font-bold text-primary mb-2">99%</p>
+                      <p className="text-3xl font-bold text-primary mb-2">
+                        <Counter value={97} suffix="%" duration={1500} />
+                      </p>
                       <p className="text-xs text-muted-foreground tracking-widest uppercase font-medium">
-                        On-Time Rate
+                        On-Time Rating
                       </p>
                     </div>
                   </div>
@@ -933,11 +940,22 @@ export default function Home() {
                     <div>
                       <select value={paymentMethod} onChange={(e) => setPaymentMethod(e.target.value)} className="w-full px-0 py-3 bg-background border-b border-border focus:border-primary outline-none transition-colors text-foreground">
                         <option>Pay Later</option>
-                        <option>Credit Card</option>
+                        
                         <option>Invoice</option>
                       </select>
                     </div>
-
+                    <div>
+                        <label className="block text-sm font-semibold text-foreground mb-3 tracking-wide mt-4">
+                          ADDITIONAL INFO
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="additional information for driver"
+                          value={Additional}
+                          onChange={(e) => setAdditional(e.target.value)}
+                          className="w-full px-0 py-3 bg-background border-b border-border focus:border-primary outline-none transition-colors text-foreground placeholder:text-muted-foreground"
+                        />
+                      </div>
                     <div className="pt-8">
                       <button type="submit" className="cta-button w-full">
                         Reserve Now
@@ -1074,19 +1092,27 @@ export default function Home() {
 
               <div className="grid grid-cols-2 gap-6">
                 <div className="bg-background border border-border p-8">
-                  <p className="text-3xl font-bold text-primary mb-2">15+</p>
+                  <p className="text-3xl font-bold text-primary mb-2">
+                    <Counter value={15} suffix="+" duration={1500} />
+                  </p>
                   <p className="text-xs font-semibold text-muted-foreground tracking-widest uppercase">Years of Excellence</p>
                 </div>
                 <div className="bg-background border border-border p-8">
-                  <p className="text-3xl font-bold text-primary mb-2">10K+</p>
+                  <p className="text-3xl font-bold text-primary mb-2">
+                    <Counter value={1000} suffix="+" prefix="" duration={2000} />
+                  </p>
                   <p className="text-xs font-semibold text-muted-foreground tracking-widest uppercase">Satisfied Clients</p>
                 </div>
                 <div className="bg-background border border-border p-8">
-                  <p className="text-3xl font-bold text-primary mb-2">50+</p>
+                  <p className="text-3xl font-bold text-primary mb-2">
+                    <Counter value={10} suffix="+" duration={1000} />
+                  </p>
                   <p className="text-xs font-semibold text-muted-foreground tracking-widest uppercase">Premium Vehicles</p>
                 </div>
                 <div className="bg-background border border-border p-8">
-                  <p className="text-3xl font-bold text-primary mb-2">99%</p>
+                  <p className="text-3xl font-bold text-primary mb-2">
+                    <Counter value={97} suffix="%" duration={1500} />
+                  </p>
                   <p className="text-xs font-semibold text-muted-foreground tracking-widest uppercase">On-Time Rating</p>
                 </div>
               </div>
