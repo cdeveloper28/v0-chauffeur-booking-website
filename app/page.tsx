@@ -350,38 +350,82 @@ export default function Home() {
               loop
               playsInline
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-black/40" />
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 reveal-on-scroll">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                 <div className="space-y-2">
-                  <p className="text-primary font-semibold tracking-widest text-xs uppercase">
-                    Premium Transportation
-                  </p>
+                 
+<div className='w-full h-36'></div>
                   <h1 className="hero-title text-foreground">
                     Luxury Beyond
                     <br />
-                    Expectations
+                    <span className="text-primary"> Expectations </span>
                   </h1>
                 </div>
 
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-xl font-light">
-                  Experience the epitome of private transportation. Elite drivers, immaculate vehicles, and
-                  unwavering punctuality for discerning clients.
+                <p className="text- text-muted-foreground leading-relaxed max-w-xl font-light md:text-xl">
+                  <span className='font-bold'>Experience</span> the epitome of private transportation. Elite drivers, immaculate vehicles, and unwavering punctuality <span className='font-bold'>for discerning clients.</span>
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <div className="flex flex-col sm:flex-row gap-4 pt-10 rounded">
                   <Link href="#booking" className="cta-button">
                     Book Your Ride
-                  </Link>
-                  <a href="#services" className="cta-button-secondary">
-                    Explore Services
-                  </a>
+                  </Link>                   
                 </div>
 
-                <div className="border-t border-border pt-8 mt-8">
+                {/* Star Rating Stats with User Avatars */}
+                <div className="mt-8 p-4 bg-secondary/30 border border-border rounded-lg">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <div className="flex">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} size={14} className="text-primary fill-primary" />
+                          ))}
+                        </div>
+                        <span className="text-lg font-bold text-foreground">4.9</span>
+                        <span className="text-xs text-muted-foreground">(2,847)</span>
+                      </div>
+                    </div>
+                    <div className="flex -space-x-1">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 border-2 border-background flex items-center justify-center text-white text-xs font-semibold">JD</div>
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-600 border-2 border-background flex items-center justify-center text-white text-xs font-semibold">RC</div>
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-500 to-red-600 border-2 border-background flex items-center justify-center text-white text-xs font-semibold">ST</div>
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 border-2 border-background flex items-center justify-center text-white text-xs font-semibold">MJ</div>
+                      <div className="w-8 h-8 rounded-full bg-border border-2 border-background flex items-center justify-center text-muted-foreground text-xs font-semibold">+50</div>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-1">
+                    {[
+                      { stars: 5, percentage: 78 },
+                      { stars: 4, percentage: 15 },
+                      { stars: 3, percentage: 5 },
+                      { stars: 2, percentage: 1 },
+                      { stars: 1, percentage: 1 }
+                    ].map((rating) => (
+                      <div key={rating.stars} className="flex items-center gap-2">
+                        <div className="flex items-center gap-1 w-12">
+                          <span className="text-xs text-muted-foreground">{rating.stars}</span>
+                          <Star size={10} className="text-primary fill-primary" />
+                        </div>
+                        <div className="flex-1 h-1.5 bg-border rounded-full overflow-hidden">
+                          <div 
+                            className="h-full bg-gradient-to-r from-primary to-primary/80 rounded-full transition-all duration-1000 ease-out"
+                            style={{ width: `${rating.percentage}%` }}
+                          />
+                        </div>
+                        <span className="text-xs text-muted-foreground w-8 text-right">{rating.percentage}%</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+               
+                <div className="border-t border-border pt-10 mt-8">
                   <div className="grid grid-cols-3 gap-8">
                     <div>
                       <p className="text-2xl font-bold text-primary">500+</p>
