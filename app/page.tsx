@@ -353,7 +353,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-black/40" />
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 reveal-on-scroll">
+          <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20 reveal-on-scroll">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                 <div className="space-y-2">
@@ -373,7 +373,11 @@ export default function Home() {
                 <div className="flex flex-col sm:flex-row gap-4 pt-10 rounded">
                   <Link href="#booking" className="cta-button">
                     Book Your Ride
-                  </Link>                   
+                  </Link>   
+                         
+                  <a href="#services" className="cta-button-secondary">
+                    Explore Services
+                  </a>   
                 </div>
 
                 {/* Star Rating Stats with User Avatars */}
