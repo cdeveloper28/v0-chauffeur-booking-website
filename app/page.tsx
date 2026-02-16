@@ -339,7 +339,7 @@ export default function Home() {
         {/* Hero Section */}
         <section
           id="home"
-          className="relative w-full min-h-[85vh] flex items-center overflow-hidden bg-background"
+          className="w-full min-h-[85vh] flex items-center overflow-hidden bg-background"
         >
           <div className="absolute inset-0 overflow-hidden">
             <video
